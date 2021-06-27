@@ -9,10 +9,14 @@ The rise of taxi aggregators (like Ola, Uber) and rental services has changed pe
 
 ### Exploratory Data Analysis
 EDA was done to understand the relationship between independent variables amongst themselves as well as with dependent variable (selling price).
+
+ ![image](https://user-images.githubusercontent.com/86396532/123532673-d1017a80-d72c-11eb-80fe-9684995b12e5.png)
+ 
+Aboce graph is a pair plot that shows features relationship amongst themselves  
  
  ![image](https://user-images.githubusercontent.com/86396532/123307091-b322f280-d53f-11eb-81bb-f978fc995241.png)
  
- The above histogram reflects that the sale of vehicles fell post 2015. It can be associated with the fact that people who were planning to buy new vehicle have been holding their decision due to gradual entry of electric vehicles and government's evolving regulations.
+ The above histogram reflects that the sale of vehicles fell post 2015. It can be associated with the fact that people who were planning to buy new vehicle have been holding their decision due to gradual entry of electric vehicles and government's evolving regulations. The graph is left skewed and hence doesn't follow a gaussian distribution. If we had been using ML algorithms like linear regression, standardisation of this data would have been required 
  
  ![image](https://user-images.githubusercontent.com/86396532/123307774-81f6f200-d540-11eb-9ca4-63c94c73128c.png)
 
@@ -24,7 +28,7 @@ Above graph shows that sale of pre-owned cars through dealers are almost twice t
 
 ![image](https://user-images.githubusercontent.com/86396532/123308720-a2737c00-d541-11eb-84d4-59aea23d6e9b.png)
 
-The density function shows that majority of the cars that were sold in secondary market were driven for around 50,000km or less.
+The density function shows that majority of the cars that were sold in secondary market were driven for around 50,000km or less. But further down we will see that Kms_driven hardly has any relationship with the Selling_price of the car and hence would be dropped while model training.
 
 ![image](https://user-images.githubusercontent.com/86396532/123308933-ec5c6200-d541-11eb-9776-0b64b9e1c71b.png)
 
@@ -32,7 +36,7 @@ Resale price of vehicles are almost directly proportionate to Current prices whi
 
 ![image](https://user-images.githubusercontent.com/86396532/123309034-0b5af400-d542-11eb-9620-f1767abaf8d4.png)
 
-This heatmap shows the correlation that different features have amongst themselves. It shows that current prices and Year have significant impact over selling price but surprisingly distance driven (Kms_driven) hardly has any relationship with it.
+This heatmap quantifies the correlation that different features have amongst themselves. It shows that current prices and Year have significant impact over selling price but surprisingly distance driven (Kms_driven) hardly has any relationship with it.
 
 ### Encoding
 To inculcate the impact of categorical variables (Fuel_type, Transmission, etc) on the dependent variable (selling_price) in our machine learning model, it is important to convert them to some numerical values. So One Hot Encoding was used for Fuel_type, Transmission and Seller_type variables whereas Count/Frequency encoding was used for Car_Name (One Hot encoding would have resulted in curse of dimensionality due to high variety of classes).
